@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# npm run build result
+.dist
+
+#parcel cache
+.parcel-cache
