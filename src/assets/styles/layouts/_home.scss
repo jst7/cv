@@ -1,0 +1,189 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: $font-family-sans-serif;
+    background-color: $cv-bg;
+    color: $cv-font-color;
+    text-align: justify;
+}
+
+.uoc-logo {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.ua-logo {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.uoc-title {
+    font-family: $font-family-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: $uoc-corporate;
+}
+
+nav {
+    .openCloseIcon {
+        font-size: xx-large;
+    }
+    
+    h1 {
+        text-align: left;
+    }
+
+     .navigation {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: $navbar-width;
+        background-color: #000000;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+        top: 0px;
+        li {
+            margin-left: 20%;
+            margin-top: 20%;
+            a {
+                text-decoration: none;
+                color: $cv-corporate !important;
+            }
+        }
+        color: $cv-corporate !important;
+
+        @media (max-width: 800px) {
+            width: $navbar-width * 3;
+        }
+    }
+
+    .openNav  {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: $navbar-width;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+        top: 0px;
+        li {
+            margin-left: 20%;
+            margin-top: 20%;
+            a {
+                text-decoration: none;
+                color: $cv-corporate !important;
+            }
+        }
+        color: $cv-corporate !important;
+    }
+
+    .openTransition {
+        opacity: 1;
+        animation-name: openAnimation;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-duration: 0.2s;
+    }
+    
+    @keyframes openAnimation {
+        0% {
+            width: 0;
+        }
+        50% {
+            width: $navbar-width/2;
+        }
+
+        100% {
+            width: $navbar-width;
+        }
+    }
+    @media (max-width: 800px) {
+        @keyframes openAnimation {
+            0% {
+                width: 0 * 3;
+            }
+            50% {
+                width: $navbar-width/2 * 3;
+            }
+    
+            100% {
+                width: $navbar-width * 3;
+            }
+        } 
+    }
+
+}
+
+main {
+    margin-left: $navbar-width + 2%;
+    width: 65%;
+
+    ul {
+        list-style-type: none;
+    }
+
+    h2 {
+        color: $cv-corporate !important;
+    }
+
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+      }
+
+      .flex-item {
+        padding: 10px;
+        flex: 50%;
+        border: #000000 1px solid;
+        margin: 1%;
+      }
+
+      @media (max-width: 800px) {
+        .flex-container {
+          flex-direction: column;
+        }
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+#sobremi {
+
+    .sobremi-container {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+    }
+
+    .sobremi-item {
+        padding: 10px;
+        flex: 33%;
+        margin: 1%;
+    }
+
+    @media (max-width: 800px) {
+        .sobremi-container {
+          flex-direction: column;
+        }
+    }
+
+    .icon {
+        font-size: xx-large;
+        color:$cv-corporate
+    }
+}
