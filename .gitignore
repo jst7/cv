@@ -108,3 +108,5 @@ dist
 
 #parcel cache
 .parcel-cache
+
+.DS_Store
