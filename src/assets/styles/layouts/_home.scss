@@ -32,7 +32,7 @@ body {
 }
 
 nav {
-    .openCloseIcon {
+    .opencloseicon {
         font-size: xx-large;
     }
     
@@ -65,7 +65,7 @@ nav {
         }
     }
 
-    .openNav  {
+    .opennav  {
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -85,7 +85,7 @@ nav {
         color: $cv-corporate !important;
     }
 
-    .openTransition {
+    .opentransition {
         opacity: 1;
         animation-name: openAnimation;
         animation-iteration-count: 1;
