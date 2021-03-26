@@ -11,9 +11,8 @@
  */
 
 +(function () {
-  const university = "UOC";
-  console.log(`Hello, ${university}!`);
-
+  const author = "Jorge Segovia Tormo";
+  console.log(`Bienvenidos al cv de ${author}`);
 
   var btnNavbar = document.getElementById("closeNav");
   var navbar = document.getElementById("navbar");
@@ -21,11 +20,11 @@
 
   btnNavbar.addEventListener('click', () => {
     navbar.className = "hide";
-    showNavBar.className = "show opennav";
+    showNavBar.className = "navbar__opciones--show icon-menu";
   })
 
   showNavBar.addEventListener('click', () => {
-    navbar.className = "show navigation opentransition";
+    navbar.className = "navbar__opciones--show navbar__opciones opentransition";
     showNavBar.className = "hide";
   })
 

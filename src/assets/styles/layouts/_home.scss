@@ -10,29 +10,16 @@ body {
     text-align: justify;
 }
 
-.uoc-logo {
+.uni-logo {
     display: block;
     margin-bottom: 20px;
-    width: 100%;
+    width: $cien;
     height: auto;
 }
 
-.ua-logo {
-    display: block;
-    margin-bottom: 20px;
-    width: 100%;
-    height: auto;
-}
 
-.uoc-title {
-    font-family: $font-family-serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: $uoc-corporate;
-}
-
-nav {
-    .opencloseicon {
+.navbar {
+    .navbar__boton {
         font-size: xx-large;
     }
     
@@ -40,14 +27,14 @@ nav {
         text-align: left;
     }
 
-     .navigation {
+     .navbar__opciones {
         list-style-type: none;
         margin: 0;
         padding: 0;
         width: $navbar-width;
         background-color: #000000;
         position: fixed;
-        height: 100%;
+        height: $cien;
         overflow: auto;
         top: 0px;
         li {
@@ -61,28 +48,8 @@ nav {
         color: $cv-corporate !important;
 
         @media (max-width: 800px) {
-            width: $navbar-width * 3;
+            width: multiplicar($navbar-width, 3);
         }
-    }
-
-    .opennav  {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        width: $navbar-width;
-        position: fixed;
-        height: 100%;
-        overflow: auto;
-        top: 0px;
-        li {
-            margin-left: 20%;
-            margin-top: 20%;
-            a {
-                text-decoration: none;
-                color: $cv-corporate !important;
-            }
-        }
-        color: $cv-corporate !important;
     }
 
     .opentransition {
@@ -100,29 +67,28 @@ nav {
         50% {
             width: $navbar-width/2;
         }
-
         100% {
             width: $navbar-width;
         }
     }
+    //Cambia para pantallas movil
     @media (max-width: 800px) {
         @keyframes openAnimation {
             0% {
                 width: 0 * 3;
             }
             50% {
-                width: $navbar-width/2 * 3;
+                width: multiplicar($navbar-width/2, 3);
             }
-    
             100% {
-                width: $navbar-width * 3;
+                width: multiplicar($navbar-width, 3);
             }
         } 
     }
 
 }
 
-main {
+.informacion {
     margin-left: $navbar-width + 2%;
     width: 65%;
 
@@ -134,13 +100,13 @@ main {
         color: $cv-corporate !important;
     }
 
-    .flex-container {
+    .informacion__contenido {
         display: flex;
         flex-direction: row;
         text-align: center;
       }
 
-      .flex-item {
+      .contenido {
         padding: 10px;
         flex: 50%;
         border: #000000 1px solid;
@@ -148,7 +114,7 @@ main {
       }
 
       @media (max-width: 800px) {
-        .flex-container {
+        .informacion__contenido {
           flex-direction: column;
         }
     }
@@ -158,26 +124,29 @@ main {
     display: none;
 }
 
-.show {
+.navbar__opciones--show {
     display: block;
+    list-style-type: none;
+    position: fixed;
 }
 
-#sobremi {
+.sobremi {
 
-    .sobremi-container {
+    .sobremi__informacion{
         display: flex;
         flex-direction: row;
         text-align: center;
     }
 
-    .sobremi-item {
+    .info{
         padding: 10px;
         flex: 33%;
         margin: 1%;
     }
 
-    @media (max-width: 800px) {
-        .sobremi-container {
+    //Cambia para pantallas movil
+    @media (max-width: 800px) { 
+        .info {
           flex-direction: column;
         }
     }

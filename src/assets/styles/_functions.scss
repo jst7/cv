@@ -1,0 +1,15 @@
+@function multiplicar($numbers...) {
+  $mult: 1;
+  @each $number in $numbers {
+    $mult: $mult * $number;
+  }
+  @return $mult;
+}
+
+@function sum($numbers...) {
+  $num: 0;
+  @each $number in $numbers {
+    $num: $num * $number;
+  }
+  @return $num;
+}
