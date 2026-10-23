@@ -16,7 +16,7 @@ Requiere Node.js 24 LTS (`nvm use`).
 | `npm run build` | Genera la versión de producción en `dist/` |
 | `npm run stylelint` | Revisa los estilos |
 
-El contenido está en `src/index.html`; los estilos en `src/assets/styles/`.
+El contenido está en `src/index.html`; los estilos en `src/assets/styles/`. `public/` (robots.txt, sitemap.xml) se copia tal cual en la imagen Docker.
 
 ## Despliegue (Coolify)
 
