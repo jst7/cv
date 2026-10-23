@@ -43,7 +43,6 @@
     color: var(--text);
   }
 
-  .profile__avatar,
   .nav,
   .actions,
   .skip-link,
@@ -74,8 +73,21 @@
   }
 
   .timeline::before,
+  .timeline::after,
   .job::before {
     display: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .job,

@@ -5,8 +5,9 @@ $content-max-width: 780px;
 $breakpoint-md: 900px;
 $radius: 10px;
 
-// Los colores se definen como custom properties para poder cambiarlos en modo oscuro
+// Tema claro siempre, independientemente del modo del sistema
 :root {
+  color-scheme: light;
   --bg: #f5f6f8;
   --surface: #fff;
   --text: #1d2733;
@@ -20,16 +21,3 @@ $radius: 10px;
   --sidebar-tag: #2b3d4e;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #11171d;
-    --surface: #18212a;
-    --text: #e4e9ee;
-    --text-muted: #9aa8b6;
-    --border: #273441;
-    --accent: #4cc3d9;
-    --accent-soft: #173640;
-    --sidebar-bg: #0b1116;
-    --sidebar-tag: #1b2732;
-  }
-}

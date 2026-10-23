@@ -1,0 +1,126 @@
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+
+  50% {
+    box-shadow: 0 0 0 9px var(--accent-soft);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Entrada escalonada al cargar la página */
+  .sidebar__inner > *,
+  #perfil > * {
+    animation: fade-up 0.7s $ease-out both;
+  }
+
+  @for $i from 1 through 6 {
+    .sidebar__inner > :nth-child(#{$i}) {
+      animation-delay: #{$i * 0.07}s;
+    }
+
+    #perfil > :nth-child(#{$i}) {
+      animation-delay: #{0.15 + $i * 0.08}s;
+    }
+  }
+
+  /* Aparición al hacer scroll (la clase .js se añade en el <head>; sin JS todo se ve) */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s $ease-out var(--reveal-delay, 0s),
+      transform 0.7s $ease-out var(--reveal-delay, 0s),
+      box-shadow 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js .job.reveal::before {
+    transform: scale(0);
+    transition: transform 0.5s $ease-out 0.25s;
+  }
+
+  .js .job.reveal.is-visible::before {
+    transform: scale(1);
+  }
+
+  .job--current::before {
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  /* Elevación suave al pasar el ratón */
+  .job.is-visible:hover,
+  .degree.is-visible:hover,
+  .highlights li.is-visible:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+    box-shadow: 0 10px 28px -12px rgb(16 42 67 / 25%);
+  }
+
+  .button {
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      filter 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px -10px var(--accent);
+    }
+  }
+
+  .tags li,
+  .job__stack li {
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  .nav a {
+    transition: background-color 0.25s ease;
+  }
+}
+
+/* Línea del timeline que se rellena según el scroll */
+.timeline::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 6px;
+  width: 2px;
+  background: var(--accent);
+  transform: scaleY(var(--progress, 0));
+  transform-origin: top;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline::after {
+    display: none;
+  }
+}
