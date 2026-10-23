@@ -1,0 +1,87 @@
+// Versión imprimible: "Descargar PDF" usa window.print()
+@media print {
+  @page {
+    margin: 12mm;
+  }
+
+  :root {
+    --bg: #fff;
+    --surface: #fff;
+    --text: #1d2733;
+    --text-muted: #5b6776;
+    --border: #d5dbe1;
+    --accent: #0a7f95;
+    --accent-soft: #e2f3f6;
+  }
+
+  body {
+    font-size: 11pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .layout {
+    display: block;
+  }
+
+  .sidebar {
+    background: none;
+    color: var(--text);
+
+    &__inner {
+      position: static;
+      max-height: none;
+      padding: 0 0 12px;
+    }
+
+    a {
+      color: var(--text);
+    }
+  }
+
+  .profile__name {
+    color: var(--text);
+  }
+
+  .profile__avatar,
+  .nav,
+  .actions,
+  .skip-link,
+  .footer {
+    display: none;
+  }
+
+  .side-block {
+    margin-top: 14px;
+  }
+
+  .tags li {
+    background: var(--accent-soft);
+    color: var(--text);
+  }
+
+  .main {
+    max-width: none;
+    padding: 0;
+  }
+
+  .section {
+    margin-bottom: 20px;
+  }
+
+  .timeline {
+    padding-left: 0;
+  }
+
+  .timeline::before,
+  .job::before {
+    display: none;
+  }
+
+  .job,
+  .degree {
+    break-inside: avoid;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+  }
+}

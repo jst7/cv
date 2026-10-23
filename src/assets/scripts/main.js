@@ -1,34 +1,32 @@
-/**
- * Import dependencies from node_modules
- * see commented examples below
- */
+// Años transcurridos desde la fecha indicada (YYYY-MM), para que el CV no se quede desactualizado
+function yearsSince(value) {
+  const [year, month] = value.split("-").map(Number);
+  const now = new Date();
+  const months = (now.getFullYear() - year) * 12 + (now.getMonth() + 1 - month);
+  return Math.floor(months / 12);
+}
 
-// import 'some-node-module';
-// import SomeModule from 'some-node-module';
+document.querySelectorAll("[data-years-since]").forEach((el) => {
+  el.textContent = yearsSince(el.dataset.yearsSince);
+});
 
-/**
- * Write any other JavaScript below
- */
+document.getElementById("year").textContent = new Date().getFullYear();
 
-+(function () {
-  const author = "Jorge Segovia Tormo";
-  console.log(`Bienvenidos al cv de ${author}`);
+document.getElementById("printCv").addEventListener("click", () => window.print());
 
-  var btnNavbar = document.getElementById("closeNav");
-  var navbar = document.getElementById("navbar");
-  var showNavBar = document.getElementById("openNav");
+// Marca en la navegación la sección visible
+const navLinks = document.querySelectorAll(".nav a");
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries
+      .filter((entry) => entry.isIntersecting)
+      .forEach((entry) => {
+        navLinks.forEach((link) => {
+          link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+  },
+  { rootMargin: "-40% 0px -55% 0px" }
+);
 
-  btnNavbar.addEventListener('click', () => {
-    navbar.className = "hide";
-    showNavBar.className = "navbar__opciones--show icon-menu";
-  })
-
-  showNavBar.addEventListener('click', () => {
-    navbar.className = "navbar__opciones--show navbar__opciones opentransition";
-    showNavBar.className = "hide";
-  })
-
-
-})();
-
-
+document.querySelectorAll("main .section").forEach((section) => observer.observe(section));
